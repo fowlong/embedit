@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>EmbedIt Editor Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #f3f4f6;
+        color: #111827;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        padding: 12px 16px;
+        background: #111827;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      header input[type='text'] {
+        flex: 1;
+        max-width: 420px;
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: none;
+      }
+      header button {
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: none;
+        background: #2563eb;
+        color: white;
+        cursor: pointer;
+      }
+      main {
+        flex: 1;
+        min-height: 0;
+      }
+      #viewer {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <input id="pdf-url" type="text" value="/sample.pdf" placeholder="Enter PDF URL" />
+      <button id="open">Open PDF</button>
+      <button id="toggle-edit">Toggle Edit</button>
+      <button id="save-edits">Save edits</button>
+      <button id="load-edits">Load edits</button>
+      <button id="export-pdf">Export</button>
+    </header>
+    <main>
+      <div id="viewer"></div>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
