@@ -1,0 +1,14 @@
+{
+  "name": "@embedit/example-editor-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@embedpdf/core": "workspace:*",
+    "@embedit/plugin-editor": "workspace:*"
+  }
+}

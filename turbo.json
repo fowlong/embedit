@@ -6,6 +6,10 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "@embedit/plugin-editor#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["packages/plugin-editor/dist/**"]
+    },
     "check-types": {
       "dependsOn": ["^check-types"]
     },
