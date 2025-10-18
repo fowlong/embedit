@@ -14,17 +14,18 @@ export class HistoryStack<T> {
     this.redoStack = [];
   }
 
-  undo(current: T): T | undefined {
-    if (this.undoStack.length === 0) return undefined;
+  undo(_current: T): T | undefined {
+    if (this.undoStack.length <= 1) return undefined;
     const latest = this.undoStack.pop()!;
-    this.redoStack.push({ value: this.clone(current), timestamp: Date.now() });
-    return this.clone(latest.value);
+    this.redoStack.push({ value: this.clone(latest.value), timestamp: latest.timestamp });
+    const previous = this.undoStack[this.undoStack.length - 1];
+    return this.clone(previous.value);
   }
 
-  redo(current: T): T | undefined {
+  redo(_current: T): T | undefined {
     if (this.redoStack.length === 0) return undefined;
     const latest = this.redoStack.pop()!;
-    this.undoStack.push({ value: this.clone(current), timestamp: Date.now() });
+    this.undoStack.push({ value: this.clone(latest.value), timestamp: latest.timestamp });
     return this.clone(latest.value);
   }
 
